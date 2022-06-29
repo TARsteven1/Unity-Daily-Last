@@ -20,7 +20,10 @@ public class HotfixScript : MonoBehaviour
     }
     private byte[] MyLoader(ref string filepath)
     {
-        string temppath = @"D:\Unity3D program\Unity Daily Last\XLua\Lua\" + filepath + ".lua.txt";
+        //string temppath = @"D:\Unity3D program\Unity Daily Last\XLua\Lua\" + filepath + ".lua.txt";
+        //string temppath = @"D:\XLua\Lua\" + filepath + ".lua.txt";
+       // Debug.Log(temppath);
+        string temppath = Application.persistentDataPath + "/" + filepath + ".lua.txt";
         return System.Text.Encoding.UTF8.GetBytes(File.ReadAllText(temppath));
     }
     void Start()

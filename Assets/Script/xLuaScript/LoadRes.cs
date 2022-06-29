@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using XLua;
-
+//没在用了
 [Hotfix]
 public class LoadRes : MonoBehaviour
 {

@@ -94,6 +94,9 @@ namespace XLua.CSObjectWrap
             translator.DelayWrapLoader(typeof(UnityEngine.Renderer), UnityEngineRendererWrap.__Register);
         
         
+            translator.DelayWrapLoader(typeof(UnityEngine.Networking.UnityWebRequest), UnityEngineNetworkingUnityWebRequestWrap.__Register);
+        
+        
             translator.DelayWrapLoader(typeof(UnityEngine.Light), UnityEngineLightWrap.__Register);
         
         

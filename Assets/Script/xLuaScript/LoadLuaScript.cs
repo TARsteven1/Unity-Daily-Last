@@ -19,7 +19,7 @@ public class LoadLuaScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        //CheckingUpdateData();
+        CheckingUpdateData();
     }
     IEnumerator LoadLuaScriptFromServer(string resName)
     {
@@ -38,13 +38,14 @@ public class LoadLuaScript : MonoBehaviour
         //File.WriteAllText(@"D: \rrr\" + resName,str);
 
         //}
-        File.WriteAllText(@"D:\Unity3D program\Unity Daily Last\XLua\Lua" + resName, str);
-
+        //File.WriteAllText(@"D:\Unity3D program\Unity Daily Last\XLua\Lua" + resName, str);
+        File.WriteAllText(Application.persistentDataPath+ "/" + resName, str);
+        Debug.Log(Application.persistentDataPath + "/" + resName);
     }
     private void CheckingUpdateData()
     {
         //判断是否有此文件夹
-        if (File.Exists(@"D:\Unity3D program\Unity Daily Last\XLua\Lua\Test.lua.txt")&& File.Exists(@"D:\Unity3D program\Unity Daily Last\XLua\Lua\InitFun.lua.txt"))
+        if (File.Exists(Application.persistentDataPath + "/Test.lua.txt")&& File.Exists(Application.persistentDataPath + "/InitFun.lua.txt"))
         {
             SceneManager.LoadScene("SampleScene");
         }

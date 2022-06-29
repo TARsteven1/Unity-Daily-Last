@@ -12,7 +12,7 @@ xlua.hotfix(CS.HotfixScript,"Start",function(self)
         
 end)
 xlua.hotfix(CS.HotfixScript,"Update",function(self)
-if (UnityEngine.Input.GetKeyDown(UnityEngine.KeyCode.U)) then
+if (UnityEngine.Input.GetKeyDown(UnityEngine.KeyCode.C)) then
         
             self.hot:GetPrefab('cube');
         end

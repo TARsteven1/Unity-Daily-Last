@@ -47,6 +47,11 @@
 		
 	</assembly>
 
+	<assembly fullname="UnityEngine.UnityWebRequestModule">
+	    <type fullname="UnityEngine.Networking.UnityWebRequest" preserve="all"/>
+		
+	</assembly>
+
 	<assembly fullname="Assembly-CSharp">
 	    <type fullname="Tutorial.BaseClass" preserve="all"/>
 		<type fullname="Tutorial.TestEnum" preserve="all"/>
