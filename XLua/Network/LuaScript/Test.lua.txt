@@ -1,0 +1,19 @@
+﻿print("HHH")
+local UnityEngine=CS.UnityEngine
+xlua.hotfix(CS.Cube,"Update",function(self)
+if (UnityEngine.Input.GetKeyDown(UnityEngine.KeyCode.S)) then
+        
+           self.Rigidbody:AddForce(UnityEngine.Vector3.up * 500);
+        end
+end)
+xlua.hotfix(CS.HotfixScript,"Start",function(self)
+        
+           self.hot:LoadResource('cube','gameobject\\cube.u3d');
+        
+end)
+xlua.hotfix(CS.HotfixScript,"Update",function(self)
+if (UnityEngine.Input.GetKeyDown(UnityEngine.KeyCode.U)) then
+        
+            self.hot:GetPrefab('cube');
+        end
+end)

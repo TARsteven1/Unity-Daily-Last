@@ -1,0 +1,7 @@
+ManifestFileVersion: 0
+CRC: 592233602
+AssetBundleManifest:
+  AssetBundleInfos:
+    Info_0:
+      Name: gameobject/cube.u3d
+      Dependencies: {}

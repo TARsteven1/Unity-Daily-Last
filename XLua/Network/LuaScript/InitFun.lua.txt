@@ -1,0 +1,4 @@
+﻿
+xlua.hotfix(CS.Cube,"Update",nil)
+xlua.hotfix(CS.HotfixScript,"Start",nil)
+xlua.hotfix(CS.HotfixScript,"Update",nil)
