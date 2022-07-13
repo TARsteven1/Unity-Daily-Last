@@ -1,0 +1,8 @@
+C:\Users\Administrator\source\repos\NetWorkingAPI\NetWorkingAPI\obj\Debug\NetWorkingAPI.csproj.AssemblyReference.cache
+C:\Users\Administrator\source\repos\NetWorkingAPI\NetWorkingAPI\obj\Debug\NetWorkingAPI.csproj.CoreCompileInputs.cache
+C:\Users\Administrator\source\repos\NetWorkingAPI\NetWorkingAPI\bin\Debug\NetWorkingAPI.dll
+C:\Users\Administrator\source\repos\NetWorkingAPI\NetWorkingAPI\bin\Debug\NetWorkingAPI.pdb
+C:\Users\Administrator\source\repos\NetWorkingAPI\NetWorkingAPI\bin\Debug\UnityEngine.dll
+C:\Users\Administrator\source\repos\NetWorkingAPI\NetWorkingAPI\obj\Debug\NetWorkingAPI.csproj.CopyComplete
+C:\Users\Administrator\source\repos\NetWorkingAPI\NetWorkingAPI\obj\Debug\NetWorkingAPI.dll
+C:\Users\Administrator\source\repos\NetWorkingAPI\NetWorkingAPI\obj\Debug\NetWorkingAPI.pdb
