@@ -6,3 +6,11 @@ C:\Users\Administrator\source\repos\NetWorkingAPI\NetWorkingAPI\bin\Debug\UnityE
 C:\Users\Administrator\source\repos\NetWorkingAPI\NetWorkingAPI\obj\Debug\NetWorkingAPI.csproj.CopyComplete
 C:\Users\Administrator\source\repos\NetWorkingAPI\NetWorkingAPI\obj\Debug\NetWorkingAPI.dll
 C:\Users\Administrator\source\repos\NetWorkingAPI\NetWorkingAPI\obj\Debug\NetWorkingAPI.pdb
+D:\Unity3D program\Unity Daily Last\NetWorkingAPI\NetWorkingAPI\obj\Debug\NetWorkingAPI.csproj.AssemblyReference.cache
+D:\Unity3D program\Unity Daily Last\NetWorkingAPI\NetWorkingAPI\obj\Debug\NetWorkingAPI.csproj.CoreCompileInputs.cache
+D:\Unity3D program\Unity Daily Last\NetWorkingAPI\NetWorkingAPI\obj\Debug\NetWorkingAPI.dll
+D:\Unity3D program\Unity Daily Last\NetWorkingAPI\NetWorkingAPI\obj\Debug\NetWorkingAPI.pdb
+D:\Unity3D program\Unity Daily Last\NetWorkingAPI\NetWorkingAPI\bin\Debug\NetWorkingAPI.dll
+D:\Unity3D program\Unity Daily Last\NetWorkingAPI\NetWorkingAPI\bin\Debug\NetWorkingAPI.pdb
+D:\Unity3D program\Unity Daily Last\NetWorkingAPI\NetWorkingAPI\bin\Debug\UnityEngine.dll
+D:\Unity3D program\Unity Daily Last\NetWorkingAPI\NetWorkingAPI\obj\Debug\NetWorkingAPI.csproj.CopyComplete

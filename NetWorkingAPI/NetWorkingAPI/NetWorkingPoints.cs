@@ -8,32 +8,41 @@ using System.Collections;
 
 namespace NetWorkingAPI
 {
-    public static class NetWorkingPoints/* : MonoBehaviour*/
+    public static class PointsHandler/* : MonoBehaviour*/
     {
 
       static  int LastTime = 220728;
 
-        public static void UpLoadPoints(string token, int mobile, int game_id, int points)
+
+            public static void UpLoadPoints(string token, int mobile, int game_id, int points)
         {
             if (!CheckingUsefully())
             {
                 Debug.Log("DLL已超过有效期,请联系作者QQ:764521788");
                 return;
             }
-            //StartCoroutine(uploadPoints(token, mobile, game_id, points));
+            
 
 
         }
-        // public static  void GetPointsRanking(string token, int mobile, int game_id)
-        // {
-        //     if (!CheckingUsefully())
-        //     {
-        //         Debug.Log("DLL已超过有效期,请联系作者QQ:764521788");
-        //         return;
-        //     }
-        //    // StartCoroutine(getpointsRanking(token, mobile, game_id));
-        // }
-        public static  IEnumerator uploadPoints(string token, int mobile, int game_id, int points, Action<string> result)
+        public static IEnumerator UserLogin(string path,byte[] body, Action<string> result)
+        {
+            if (!CheckingUsefully())
+            {
+                Debug.Log("DLL已超过有效期,请联系作者QQ:764521788");
+                yield break;
+            }
+            UnityWebRequest request = new UnityWebRequest(/*"http://cmcc.dwtv.tv/user/uploadPoints"*/path, "POST");//method传输方式，默认为Get；
+            request.uploadHandler = new UploadHandlerRaw(body);//实例化上传缓存器
+            request.downloadHandler = new DownloadHandlerBuffer();//实例化下载存贮器
+            request.SetRequestHeader("Content-Type", "application/json");//更改内容类型，
+            yield return request.SendWebRequest();//解决请求时卡顿，解放线程
+            Debug.Log(request.downloadHandler.text);
+            if (result != null)
+                result(request.downloadHandler.text);
+            yield break;
+        }
+            public static  IEnumerator uploadPoints(string path, byte[] body, Action<string> result)
         {
 
             //string fileName = Application.persistentDataPath + "/temp/321.mp3";
@@ -42,31 +51,33 @@ namespace NetWorkingAPI
                 Debug.Log("DLL已超过有效期,请联系作者QQ:764521788");
                 yield break;
             }
-            string fileName = Application.persistentDataPath + "\\words123.mp3";
-            byte[] body = System.IO.File.ReadAllBytes(fileName);
-            // byte[] body = GameUtil.SafeReadAllByte(fileName);
-            UnityWebRequest req = UnityWebRequest.Put("http://127.0.0.1:6080/upload", body);
-            yield return req.SendWebRequest();//解决请求时卡顿，解放线程
-           // Debug.Log(req.downloadHandler.text);
+            UnityWebRequest request = new UnityWebRequest(/*"http://cmcc.dwtv.tv/user/uploadPoints"*/path, "POST");//method传输方式，默认为Get；
+            request.uploadHandler = new UploadHandlerRaw(body);//实例化上传缓存器
+            request.downloadHandler = new DownloadHandlerBuffer();//实例化下载存贮器
+            request.SetRequestHeader("Content-Type", "application/json");//更改内容类型，
+            yield return request.SendWebRequest();//解决请求时卡顿，解放线程
+            Debug.Log(request.downloadHandler.text);
+
             if (result != null)
-                result(req.downloadHandler.text);
+                result(request.downloadHandler.text);
             yield break;
 
         }
-        public static IEnumerator getpointsRanking(string token, int mobile, int game_id, Action<string> result)
+        public static IEnumerator getpointsRanking(string path, string token, string mobile, string game_id, Action<string> result)
         {
             if (!CheckingUsefully())
             {
                 Debug.Log("DLL已超过有效期,请联系作者QQ:764521788");
                 yield break;
             }
-            Debug.Log("发送回复");
-            //UnityWebRequest req = UnityWebRequest.Get("http://127.0.0.1:6080/uploadData");
-            UnityWebRequest req = UnityWebRequest.Get("http://127.0.0.1:6080/uploadData?uname=black&upwd=123456");
+            string tempPath = path + @"?token=" + token + @"&mobile=" + mobile + @"&game_id=" + game_id;
+            Debug.Log(tempPath);
+            //UnityWebRequest req = UnityWebRequest.Get(/*"http://127.0.0.1:6080/uploadData?uname=black&upwd=123456"*/path+ "?token=" + token+ "&mobile="+mobile+ "&game_id="+ game_id);
+            UnityWebRequest req = UnityWebRequest.Get(tempPath);
             yield return req.SendWebRequest();//解决请求时卡顿，解放线程
 
-            Debug.Log("等待回复");
-            Debug.Log(req.downloadHandler.text);
+            //Debug.Log("等待回复");
+            //Debug.Log(req.downloadHandler.text);
             if (result != null)
                 result(req.downloadHandler.text);
         }
@@ -74,7 +85,7 @@ namespace NetWorkingAPI
         private static bool CheckingUsefully()
         {
 
-            Debug.Log(DateTime.Now.ToString("yyMMdd"));
+            //Debug.Log(DateTime.Now.ToString("yyMMdd"));
             return int.Parse(DateTime.Now.ToString("yyMMdd")) <= LastTime;
         }
 
@@ -89,6 +100,7 @@ namespace NetWorkingAPI
                 return val;
             }
         }
+       
 
 
     }
