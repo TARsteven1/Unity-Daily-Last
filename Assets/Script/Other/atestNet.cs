@@ -3,13 +3,13 @@ using System.Collections.Generic;
 using System.IO;
 using UnityEngine;
 using UnityEngine.UI;
-using UnityEngine.Networking;
+//using UnityEngine.Networking;
 //using Newtonsoft.Json;
 using LitJson;
 using NetWorkingAPI;
 public class atestNet : MonoBehaviour
 {
-    public Text text;
+    //public Text text;
     [Header("数据")]
     [SerializeField]
     string Loginpath;
@@ -51,11 +51,11 @@ public class atestNet : MonoBehaviour
             return value.ToString();
         });
     }
-    [ContextMenu("33")]
+    //[ContextMenu("33")]
     public void Login()
     {
          //Loginpath = "http://cmcc.dwtv.tv/user/login";
-         mobile = moble.text;
+         mobile = moble.text.Trim();
         //mobile_code = "1";
         //game_id = "01";
        // device = "1";
@@ -114,7 +114,7 @@ public class atestNet : MonoBehaviour
             }
         }
     }
-    [ContextMenu("44")]
+    //[ContextMenu("44")]
     public void UpLoadData()
     {
         //UpLoadpath = "http://cmcc.dwtv.tv/user/uploadPoints";
@@ -137,7 +137,7 @@ public class atestNet : MonoBehaviour
 
         }));
     }
-    [ContextMenu("55")]
+    //[ContextMenu("55")]
     public void GetPointsRankingData()
     {
         //DownLoadpath = "http://cmcc.dwtv.tv/user/pointsRanking";
@@ -172,6 +172,9 @@ public class atestNet : MonoBehaviour
        
         switch (erro)
         {
+            case "1000":
+                TipsText.text = "输入格式不规范";
+                break;
             case "3004":
                 TipsText.text = "Token失效";
                 break;
@@ -212,6 +215,18 @@ public class atestNet : MonoBehaviour
     }
     public void SpawnRankingSolt(List<RankingData> result)
     {
+        if (RankingSlotParent.transform.childCount==0)
+        {
+
+        }
+        if (RankingSlotParent.transform.childCount > 0)
+        {
+            for (int i = 0; i < RankingSlotParent.transform.childCount; i++)
+            {
+                Destroy(RankingSlotParent.transform.GetChild(i).gameObject);
+            }
+        }
+
         for (int i = 0; i < result.Count; i++)
         {
            GameObject gameObject= Instantiate(RankingSlot_Prefab, RankingSlotParent);
