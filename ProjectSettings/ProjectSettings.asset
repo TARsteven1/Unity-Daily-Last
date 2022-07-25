@@ -620,7 +620,7 @@ PlayerSettings:
   webGLThreadsSupport: 0
   webGLWasmStreaming: 0
   scriptingDefineSymbols:
-    1: HOTFIX_ENABLE
+    1: HOTFIX_ENABLE;ENABLE_DEBUG_LOG
   platformArchitecture: {}
   scriptingBackend: {}
   il2cppCompilerConfiguration: {}

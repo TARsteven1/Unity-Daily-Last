@@ -4,12 +4,14 @@ using UnityEngine;
 
 public class YieldScript : MonoBehaviour
 {
-    public int TestCase;
+    //public int TestCase;
+    public enum yield_return_Type {non, WaitForEndOfFrame, WaitForSeconds, WaitForFrame }
+    public yield_return_Type yield_Return_Type;
     private IEnumerator Start() {//start 返回迭代器直接可以开启协程
         
-        switch (TestCase)
+        switch (yield_Return_Type)
         {
-            case 0:
+            case yield_return_Type.non:
                 //$ 特殊字符将字符串文本标识为  内插字符串 。
                 //内插字符串是可能包含内插表达式的字符串文本 。
                 //将内插字符串解析为结果字符串时，带有内插表达式的项会替换为表达式结果的字符串表示形式。
@@ -17,7 +19,7 @@ public class YieldScript : MonoBehaviour
                 yield return null;
                 Debug.Log($"开启协程等待后 当前帧{Time.frameCount}");
                 break;
-            case 1:
+            case yield_return_Type.WaitForEndOfFrame:
                 yield return new WaitForEndOfFrame();//每次使用WaitForEndOfFrame都要实例化,占用资源
                 Debug.Log($"yield return EndOfFram第一次 当前帧{Time.frameCount}");
                 yield return YieldHelper.WaitForEndOfFrame;//只实例化一次,在静态类中反复调用即可
@@ -26,14 +28,14 @@ public class YieldScript : MonoBehaviour
                 Debug.Log($"yield return EndOfFram第一次 当前帧{Time.frameCount}");
 
                 break;
-            case 2:
+            case yield_return_Type.WaitForSeconds:
                 Debug.Log($"before 当前时间{Time.time}");
                 yield return YieldHelper.WaitForSeconds(0.5f);//调用静态方法,传入参数节省实例化次数
                 Debug.Log($"before 当前时间{Time.time}");
                 yield return YieldHelper.WaitForSeconds(0.5f);
                 Debug.Log($"before 当前时间{Time.time}");
                 break;
-            case 3:
+            case yield_return_Type.WaitForFrame:
                 yield return null;
                 Debug.Log($"yield return null 当前帧{Time.frameCount}");
                 yield return 0;
